@@ -31,8 +31,8 @@ class NounPhraseTagger:
         self._nlp = nlp
 
         Doc.set_extension('noun_phrases', force=True, default=[])
-        Doc.set_extension('noun_phrases_count', default=0)
-        Span.set_extension('noun_phrase_modifiers_count', default=0) # Count of adjectives in a noun phrase
+        Doc.set_extension('noun_phrases_count', default=0, force=True)
+        Span.set_extension('noun_phrase_modifiers_count', default=0, force=True) # Count of adjectives in a noun phrase
 
     def __call__(self, doc: Doc) -> Doc:
         '''

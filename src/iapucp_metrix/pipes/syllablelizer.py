@@ -34,9 +34,9 @@ class Syllablelizer:
         self._language = language
         self._dic = pyphen.Pyphen(lang="es")
         Token.set_extension("syllables", default=[], force=True)
-        Token.set_extension("syllable_count", default=0)
-        Doc.set_extension("syllable_count", default=0)
-        Doc.set_extension("polysyllabic_words_count", default=0)
+        Token.set_extension("syllable_count", default=0, force=True)
+        Doc.set_extension("syllable_count", default=0, force=True)
+        Doc.set_extension("polysyllabic_words_count", default=0, force=True)
 
     def __call__(self, doc: Doc) -> Doc:
         """

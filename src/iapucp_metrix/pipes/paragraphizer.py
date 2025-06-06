@@ -32,7 +32,7 @@ class Paragraphizer:
         """
         This constructor sets the new extension attributes for Docs.
 
-        It addsa list of Span paragraphs (and count) to the main Doc, as well as a list of non empty sentences (and count) to each Span paragraph. The list of said sentences and count for the entire text can be obtained as well.
+        It adds a list of Span paragraphs (and count) to the main Doc, as well as a list of non empty sentences (and count) to each Span paragraph. The list of said sentences and count for the entire text can be obtained as well.
 
         Parameters:
         nlp(Language): The spacy model that uses this pipeline
@@ -51,14 +51,14 @@ class Paragraphizer:
         self._nlp = nlp
         self._paragraph_delimiter = paragraph_delimiter
 
-        Doc.set_extension("paragraphs", default=[])  # List
-        Doc.set_extension("paragraph_count", default=0)  # Paragraph count of text
-        Doc.set_extension("non_empty_sentences", getter=doc_non_empty_sentences_getter)
-        Doc.set_extension("sentence_count", default=0)  # Sentence count of text
+        Doc.set_extension("paragraphs", default=[], force=True)  # List
+        Doc.set_extension("paragraph_count", default=0, force=True)  # Paragraph count of text
+        Doc.set_extension("non_empty_sentences", getter=doc_non_empty_sentences_getter, force=True)
+        Doc.set_extension("sentence_count", default=0, force=True)  # Sentence count of text
         Span.set_extension(
-            "non_empty_sentences", default=[]
+            "non_empty_sentences", default=[], force=True
         )  # Sentences of a paragraph
-        Span.set_extension("sentence_count", default=0)  # Sentence count of a paragraph
+        Span.set_extension("sentence_count", default=0, force=True)  # Sentence count of a paragraph
 
     def __call__(self, doc: Doc) -> Doc:
         """

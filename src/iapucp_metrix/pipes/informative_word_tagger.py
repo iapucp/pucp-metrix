@@ -316,106 +316,106 @@ class InformativeWordTagger:
 
         self._nlp = nlp
 
-        Span.set_extension("nouns", default=[])  # Count of adjectives in a noun phrase
-        Span.set_extension("nouns_count", default=0)
-        Span.set_extension("verbs", default=[])
-        Span.set_extension("verbs_count", default=0)
-        Span.set_extension("auxiliaries", default=[])
-        Span.set_extension("auxiliaries_count", default=0)
-        Span.set_extension("gerunds", default=[])
-        Span.set_extension("gerunds_count", default=0)
-        Span.set_extension("infinitives", default=[])
-        Span.set_extension("infinitives_count", default=0)
-        Span.set_extension("adjectives", default=[])
-        Span.set_extension("adjectives_count", default=0)
-        Span.set_extension("adverbs", default=[])
-        Span.set_extension("adverbs_count", default=0)
-        Span.set_extension("functors", default=[])
-        Span.set_extension("functors_count", default=0)
-        Span.set_extension("coordinating_conjunctions", default=[])
-        Span.set_extension("coordinating_conjunctions_count", default=0)
-        Span.set_extension("subordinating_conjunctions", default=[])
-        Span.set_extension("subordinating_conjunctions_count", default=0)
-        Span.set_extension("pronouns", default=[])
-        Span.set_extension("pronouns_count", default=0)
-        Span.set_extension("pronouns_indefinite", default=[])
-        Span.set_extension("pronouns_indefinite_count", default=0)
-        Span.set_extension("pronouns_relative", default=[])
-        Span.set_extension("pronouns_relative_count", default=0)
-        Span.set_extension("pronouns_singular_first_person", default=[])
-        Span.set_extension("pronouns_singular_first_person_count", default=0)
-        Span.set_extension("pronouns_plural_first_person", default=[])
-        Span.set_extension("pronouns_plural_first_person_count", default=0)
-        Span.set_extension("pronouns_singular_second_person", default=[])
-        Span.set_extension("pronouns_singular_second_person_count", default=0)
-        Span.set_extension("pronouns_plural_second_person", default=[])
-        Span.set_extension("pronouns_plural_second_person_count", default=0)
-        Span.set_extension("pronouns_singular_third_person", default=[])
-        Span.set_extension("pronouns_singular_third_person_count", default=0)
-        Span.set_extension("pronouns_plural_third_person", default=[])
-        Span.set_extension("pronouns_plural_third_person_count", default=0)
+        Span.set_extension("nouns", default=[], force=True)  # Count of adjectives in a noun phrase
+        Span.set_extension("nouns_count", default=0, force=True)
+        Span.set_extension("verbs", default=[], force=True)
+        Span.set_extension("verbs_count", default=0, force=True)
+        Span.set_extension("auxiliaries", default=[], force=True)
+        Span.set_extension("auxiliaries_count", default=0, force=True)
+        Span.set_extension("gerunds", default=[], force=True)
+        Span.set_extension("gerunds_count", default=0, force=True)
+        Span.set_extension("infinitives", default=[], force=True)
+        Span.set_extension("infinitives_count", default=0, force=True)
+        Span.set_extension("adjectives", default=[], force=True)
+        Span.set_extension("adjectives_count", default=0, force=True)
+        Span.set_extension("adverbs", default=[], force=True)
+        Span.set_extension("adverbs_count", default=0, force=True)
+        Span.set_extension("functors", default=[], force=True)
+        Span.set_extension("functors_count", default=0, force=True)
+        Span.set_extension("coordinating_conjunctions", default=[], force=True)
+        Span.set_extension("coordinating_conjunctions_count", default=0, force=True)
+        Span.set_extension("subordinating_conjunctions", default=[], force=True)
+        Span.set_extension("subordinating_conjunctions_count", default=0, force=True)
+        Span.set_extension("pronouns", default=[], force=True)
+        Span.set_extension("pronouns_count", default=0, force=True)
+        Span.set_extension("pronouns_indefinite", default=[], force=True)
+        Span.set_extension("pronouns_indefinite_count", default=0, force=True)
+        Span.set_extension("pronouns_relative", default=[], force=True)
+        Span.set_extension("pronouns_relative_count", default=0, force=True)
+        Span.set_extension("pronouns_singular_first_person", default=[], force=True)
+        Span.set_extension("pronouns_singular_first_person_count", default=0, force=True)
+        Span.set_extension("pronouns_plural_first_person", default=[], force=True)
+        Span.set_extension("pronouns_plural_first_person_count", default=0, force=True)
+        Span.set_extension("pronouns_singular_second_person", default=[], force=True)
+        Span.set_extension("pronouns_singular_second_person_count", default=0, force=True)
+        Span.set_extension("pronouns_plural_second_person", default=[], force=True)
+        Span.set_extension("pronouns_plural_second_person_count", default=0, force=True)
+        Span.set_extension("pronouns_singular_third_person", default=[], force=True)
+        Span.set_extension("pronouns_singular_third_person_count", default=0, force=True)
+        Span.set_extension("pronouns_plural_third_person", default=[], force=True)
+        Span.set_extension("pronouns_plural_third_person_count", default=0, force=True)
         Doc.set_extension(
-            "nouns", getter=doc_nouns_getter
+            "nouns", getter=doc_nouns_getter, force=True
         )  # Count of adjectives in a noun phrase
-        Doc.set_extension("nouns_count", default=0)
-        Doc.set_extension("verbs", getter=doc_verbs_getter)
-        Doc.set_extension("verbs_count", default=0)
-        Doc.set_extension("auxiliaries", getter=doc_auxiliaries_getter)
-        Doc.set_extension("auxiliaries_count", default=0)
-        Doc.set_extension("gerunds", getter=doc_gerunds_getter)
-        Doc.set_extension("gerunds_count", default=0)
-        Doc.set_extension("infinitives", getter=doc_infinitives_getter)
-        Doc.set_extension("infinitives_count", default=0)
-        Doc.set_extension("adjectives", getter=doc_adjectives_getter)
-        Doc.set_extension("adjectives_count", default=0)
-        Doc.set_extension("adverbs", getter=doc_adverbs_getter)
-        Doc.set_extension("adverbs_count", default=0)
-        Doc.set_extension("functors", getter=doc_functors_getter)
-        Doc.set_extension("functors_count", default=0)
+        Doc.set_extension("nouns_count", default=0, force=True)
+        Doc.set_extension("verbs", getter=doc_verbs_getter, force=True)
+        Doc.set_extension("verbs_count", default=0, force=True)
+        Doc.set_extension("auxiliaries", getter=doc_auxiliaries_getter, force=True)
+        Doc.set_extension("auxiliaries_count", default=0, force=True)
+        Doc.set_extension("gerunds", getter=doc_gerunds_getter, force=True)
+        Doc.set_extension("gerunds_count", default=0, force=True)
+        Doc.set_extension("infinitives", getter=doc_infinitives_getter, force=True)
+        Doc.set_extension("infinitives_count", default=0, force=True)
+        Doc.set_extension("adjectives", getter=doc_adjectives_getter, force=True)
+        Doc.set_extension("adjectives_count", default=0, force=True)
+        Doc.set_extension("adverbs", getter=doc_adverbs_getter, force=True)
+        Doc.set_extension("adverbs_count", default=0, force=True)
+        Doc.set_extension("functors", getter=doc_functors_getter, force=True)
+        Doc.set_extension("functors_count", default=0, force=True)
         Doc.set_extension(
-            "coordinating_conjunctions", getter=doc_coordinating_conjunctions_getter
+            "coordinating_conjunctions", getter=doc_coordinating_conjunctions_getter, force=True
         )
-        Doc.set_extension("coordinating_conjunctions_count", default=0)
+        Doc.set_extension("coordinating_conjunctions_count", default=0, force=True)
         Doc.set_extension(
-            "subordinating_conjunctions", getter=doc_subordinating_conjunctions_getter
+            "subordinating_conjunctions", getter=doc_subordinating_conjunctions_getter, force=True
         )
-        Doc.set_extension("subordinating_conjunctions_count", default=0)
-        Doc.set_extension("pronouns", getter=doc_pronouns_getter)
-        Doc.set_extension("pronouns_count", default=0)
-        Doc.set_extension("pronouns_indefinite", getter=doc_pronouns_indefinite_getter)
-        Doc.set_extension("pronouns_indefinite_count", default=0)
-        Doc.set_extension("pronouns_relative", getter=doc_pronouns_relative_getter)
-        Doc.set_extension("pronouns_relative_count", default=0)
+        Doc.set_extension("subordinating_conjunctions_count", default=0, force=True)
+        Doc.set_extension("pronouns", getter=doc_pronouns_getter, force=True)
+        Doc.set_extension("pronouns_count", default=0, force=True)
+        Doc.set_extension("pronouns_indefinite", getter=doc_pronouns_indefinite_getter, force=True)
+        Doc.set_extension("pronouns_indefinite_count", default=0, force=True)
+        Doc.set_extension("pronouns_relative", getter=doc_pronouns_relative_getter, force=True)
+        Doc.set_extension("pronouns_relative_count", default=0, force=True)
         Doc.set_extension(
             "pronouns_singular_first_person",
-            getter=doc_pronouns_singular_first_person_getter,
+            getter=doc_pronouns_singular_first_person_getter, force=True
         )
-        Doc.set_extension("pronouns_singular_first_person_count", default=0)
+        Doc.set_extension("pronouns_singular_first_person_count", default=0, force=True)
         Doc.set_extension(
             "pronouns_plural_first_person",
-            getter=doc_pronouns_plural_first_person_getter,
+            getter=doc_pronouns_plural_first_person_getter, force=True
         )
-        Doc.set_extension("pronouns_plural_first_person_count", default=0)
+        Doc.set_extension("pronouns_plural_first_person_count", default=0, force=True)
         Doc.set_extension(
             "pronouns_singular_second_person",
-            getter=doc_pronouns_singular_second_person_getter,
+            getter=doc_pronouns_singular_second_person_getter, force=True
         )
-        Doc.set_extension("pronouns_singular_second_person_count", default=0)
+        Doc.set_extension("pronouns_singular_second_person_count", default=0, force=True)
         Doc.set_extension(
             "pronouns_plural_second_person",
-            getter=doc_pronouns_plural_second_person_getter,
+            getter=doc_pronouns_plural_second_person_getter, force=True
         )
-        Doc.set_extension("pronouns_plural_second_person_count", default=0)
+        Doc.set_extension("pronouns_plural_second_person_count", default=0, force=True)
         Doc.set_extension(
             "pronouns_singular_third_person",
-            getter=doc_pronouns_singular_third_person_getter,
+            getter=doc_pronouns_singular_third_person_getter, force=True
         )
-        Doc.set_extension("pronouns_singular_third_person_count", default=0)
+        Doc.set_extension("pronouns_singular_third_person_count", default=0, force=True)
         Doc.set_extension(
             "pronouns_plural_third_person",
-            getter=doc_pronouns_plural_third_person_getter,
+            getter=doc_pronouns_plural_third_person_getter, force=True
         )
-        Doc.set_extension("pronouns_plural_third_person_count", default=0)
+        Doc.set_extension("pronouns_plural_third_person_count", default=0, force=True)
 
     def __call__(self, doc: Doc) -> Doc:
         """

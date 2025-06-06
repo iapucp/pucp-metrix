@@ -42,7 +42,7 @@ class SemanticCohesionIndices:
         self._nlp = nlp
         self._lsa_model = LsaModel(nlp, lsa_model_path, lsa_dictionary_path)
 
-        Doc.set_extension("semantic_cohesion_indices", default=dict())  # Dictionary
+        Doc.set_extension("semantic_cohesion_indices", default=dict(), force=True)  # Dictionary
 
     def __call__(self, doc: Doc) -> Doc:
         """

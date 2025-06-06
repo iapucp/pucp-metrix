@@ -34,7 +34,7 @@ class SyntacticComplexityIndices:
             raise AttributeError(message)
 
         self._nlp = nlp
-        Doc.set_extension("syntactic_complexity_indices", default={})
+        Doc.set_extension("syntactic_complexity_indices", default={}, force=True)
 
     def __call__(self, doc: Doc) -> Doc:
         """

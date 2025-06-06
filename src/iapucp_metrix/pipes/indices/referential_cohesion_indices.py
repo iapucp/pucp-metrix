@@ -83,11 +83,11 @@ class ReferentialCohesionIndices:
         self._stem_overlap_func = stem_overlap_func
         self._content_word_overlap_func = content_word_overlap_func
         self._anaphore_overlap_func = anaphore_overlap_func
-        Doc.set_extension("referential_cohesion_indices", default={})
+        Doc.set_extension("referential_cohesion_indices", default={}, force=True)
         Doc.set_extension(
-            "adjacent_sentence_pairs", getter=doc_adjacent_sentence_pairs_getter
+            "adjacent_sentence_pairs", getter=doc_adjacent_sentence_pairs_getter, force=True
         )
-        Doc.set_extension("all_sentence_pairs", getter=doc_all_sentence_pairs_getter)
+        Doc.set_extension("all_sentence_pairs", getter=doc_all_sentence_pairs_getter, force=True)
 
     def __call__(self, doc: Doc) -> Doc:
         """

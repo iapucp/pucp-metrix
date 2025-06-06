@@ -80,3 +80,46 @@ class Analyzer:
             ]
 
             return metrics
+
+    def compute_grouped_metrics(
+        self, texts: list[str], workers: int = -1, batch_size: int = 1
+    ) -> list[dict]:
+        """
+        This method calculates all indices for a list of texts, grouping them by category, using multiprocessing, if available, and stores them in a list of dictionaries.
+
+        Parameters:
+        texts(List[str]): The texts to be analyzed.
+        workers(int): Amount of threads that will complete this operation. If it's -1 then all cpu cores will be used.
+        batch_size(int): Amount of texts that each worker will analyze sequentially until no more texts are left.
+
+        Returns:
+        List[Dict]: A list with the dictionaries containing the indices for all texts sent for analysis.
+        """
+        if workers == 0 or workers < -1:
+            raise ValueError(
+                "Workers must be -1 or any positive number greater than 0."
+            )
+        else:
+            threads = multiprocessing.cpu_count() if workers == -1 else workers
+            # Process all texts using multiprocessing
+            metrics = [
+                {
+                    "descriptive_indices": doc._.descriptive_indices,
+                    "word_information_indices": doc._.word_information_indices,
+                    "syntactic_pattern_density_indices": doc._.syntactic_pattern_density_indices,
+                    "syntactic_complexity_indices": doc._.syntactic_complexity_indices,
+                    "connective_indices": doc._.connective_indices,
+                    "lexical_diversity_indices": doc._.lexical_diversity_indices,
+                    "readability_indices": doc._.readability_indices,
+                    "referential_cohesion_indices": doc._.referential_cohesion_indices,
+                    "semantic_cohesion_indices": doc._.semantic_cohesion_indices,
+                    "textual_simplicity_indices": doc._.textual_simplicity_indices,
+                    "word_frequency_indices": doc._.word_frequency_indices,
+                    "psycholinguistic_indices": doc._.psycholinguistic_indices,
+                }
+                for doc in self._nlp.pipe(
+                    texts, batch_size=batch_size, n_process=threads
+                )
+            ]
+
+            return metrics

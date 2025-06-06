@@ -35,8 +35,8 @@ class VerbPhraseTagger:
         self._matcher = Matcher(nlp.vocab)
         self._pattern = pattern
 
-        Doc.set_extension("verb_phrases", default=0)
-        Doc.set_extension("verb_phrases_count", default=[])
+        Doc.set_extension("verb_phrases", default=[], force=True)
+        Doc.set_extension("verb_phrases_count", default=0, force=True)
         # Add the patterns to find the verb phrases
         for pattern in self._pattern:
             self._matcher.add("verb phrase", [pattern])

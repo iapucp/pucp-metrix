@@ -35,7 +35,7 @@ class WordFrequencyIndices:
         self._incidence = 1000
         self._rare_word_frequency = 4
 
-        Doc.set_extension("word_frequency_indices", default={})
+        Doc.set_extension("word_frequency_indices", default={}, force=True)
 
     def __call__(self, doc: Doc) -> Doc:
         """

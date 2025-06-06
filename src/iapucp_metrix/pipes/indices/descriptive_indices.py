@@ -37,7 +37,7 @@ class DescriptiveIndices:
 
         self._nlp = nlp
         self._incidence = 1000
-        Doc.set_extension("descriptive_indices", default=dict())  # Dictionary
+        Doc.set_extension("descriptive_indices", default=dict(), force=True)  # Dictionary
 
     def __call__(self, doc: Doc) -> Doc:
         """

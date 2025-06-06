@@ -37,8 +37,8 @@ class NegativeExpressionTagger:
         for pattern in self._pattern:
             self._matcher.add('negative expression', [pattern])
 
-        Doc.set_extension('negative_expressions', default=[])
-        Doc.set_extension('negative_expressions_count', default=0)
+        Doc.set_extension('negative_expressions', default=[], force=True)
+        Doc.set_extension('negative_expressions_count', default=0, force=True)
 
     def __call__(self, doc: Doc) -> Doc:
         '''

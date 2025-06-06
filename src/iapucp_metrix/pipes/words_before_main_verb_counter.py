@@ -29,7 +29,7 @@ class WordsBeforeMainVerbCounter:
         
         self._nlp = nlp
 
-        Span.set_extension('count_of_words_before_main_verb', default=0) # Count of adjectives in a noun phrase
+        Span.set_extension('count_of_words_before_main_verb', default=0, force=True) # Count of adjectives in a noun phrase
 
     def __call__(self, doc: Doc) -> Doc:
         '''

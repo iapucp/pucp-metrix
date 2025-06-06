@@ -60,12 +60,12 @@ class CohesionWordsTokenizer:
             raise AttributeError(message)
 
         self._nlp = nlp
-        Span.set_extension('unique_nouns', default=set())
-        Span.set_extension('unique_noun_lemmas', default=set())
-        Span.set_extension('unique_content_words', default=set())
-        Span.set_extension('unique_content_word_lemmas', default=set())
-        Span.set_extension('unique_pronouns', default=set())
-        Span.set_extension('unique_personal_pronouns', default=set())
+        Span.set_extension('unique_nouns', default=set(), force=True)
+        Span.set_extension('unique_noun_lemmas', default=set(), force=True)
+        Span.set_extension('unique_content_words', default=set(), force=True)
+        Span.set_extension('unique_content_word_lemmas', default=set(), force=True)
+        Span.set_extension('unique_pronouns', default=set(), force=True)
+        Span.set_extension('unique_personal_pronouns', default=set(), force=True)
 
     def __call__(self, doc: Doc) -> Doc:
         '''

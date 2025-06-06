@@ -64,7 +64,7 @@ class PsycholinguisticIndices:
             raise AttributeError(message)
 
         self._nlp = nlp
-        Doc.set_extension("psycholinguistic_indices", default=dict())
+        Doc.set_extension("psycholinguistic_indices", default=dict(), force=True)
 
     def __call__(self, doc: Doc) -> Doc:
         """

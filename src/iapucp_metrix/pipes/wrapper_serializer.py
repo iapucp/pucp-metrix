@@ -12,7 +12,19 @@ class WrapperSerializer:
         The pipe only receives the language and nothing more.
         """
         self._nlp = nlp
-        Doc.set_extension("coh_metrix_indices", default={})
+        Doc.set_extension("coh_metrix_indices", default={}, force=True)
+        Doc.set_extension("descriptive_indices", default={}, force=True)
+        Doc.set_extension("word_information_indices", default={}, force=True)
+        Doc.set_extension("syntactic_pattern_density_indices", default={}, force=True)
+        Doc.set_extension("syntactic_complexity_indices", default={}, force=True)
+        Doc.set_extension("connective_indices", default={}, force=True)
+        Doc.set_extension("lexical_diversity_indices", default={}, force=True)
+        Doc.set_extension("readability_indices", default={}, force=True)
+        Doc.set_extension("referential_cohesion_indices", default={}, force=True)
+        Doc.set_extension("semantic_cohesion_indices", default={}, force=True)
+        Doc.set_extension("textual_simplicity_indices", default={}, force=True)
+        Doc.set_extension("word_frequency_indices", default={}, force=True)
+        Doc.set_extension("psycholinguistic_indices", default={}, force=True)
 
     def __call__(self, doc: Doc) -> Doc:
         """
@@ -35,5 +47,20 @@ class WrapperSerializer:
             **doc._.word_frequency_indices,
             **doc._.psycholinguistic_indices,
         }
+
+        doc_new._.descriptive_indices = doc._.descriptive_indices
+        doc_new._.word_information_indices = doc._.word_information_indices
+        doc_new._.syntactic_pattern_density_indices = (
+            doc._.syntactic_pattern_density_indices
+        )
+        doc_new._.syntactic_complexity_indices = doc._.syntactic_complexity_indices
+        doc_new._.connective_indices = doc._.connective_indices
+        doc_new._.lexical_diversity_indices = doc._.lexical_diversity_indices
+        doc_new._.readability_indices = doc._.readability_indices
+        doc_new._.referential_cohesion_indices = doc._.referential_cohesion_indices
+        doc_new._.semantic_cohesion_indices = doc._.semantic_cohesion_indices
+        doc_new._.textual_simplicity_indices = doc._.textual_simplicity_indices
+        doc_new._.word_frequency_indices = doc._.word_frequency_indices
+        doc_new._.psycholinguistic_indices = doc._.psycholinguistic_indices
 
         return doc_new

@@ -64,17 +64,17 @@ class AlphanumericWordIdentifier:
             raise AttributeError(message)
 
         self._nlp = nlp
-        Span.set_extension("alpha_words", default=[])  # List of words for sentence
+        Span.set_extension("alpha_words", default=[], force=True)  # List of words for sentence
         Span.set_extension(
-            "alpha_words_count", default=0
+            "alpha_words_count", default=0, force=True
         )  # Count of words for sentence
-        Doc.set_extension("alpha_words", getter=doc_alpha_words_getter)
+        Doc.set_extension("alpha_words", getter=doc_alpha_words_getter, force=True)
         Doc.set_extension(
-            "alpha_words_normalized", getter=doc_alpha_words_normalized_getter
+            "alpha_words_normalized", getter=doc_alpha_words_normalized_getter, force=True
         )
-        Doc.set_extension("alpha_words_count", default=0)
-        Doc.set_extension("alpha_words_different", default=set())
-        Doc.set_extension("alpha_words_different_count", default=0)
+        Doc.set_extension("alpha_words_count", default=0, force=True)
+        Doc.set_extension("alpha_words_different", default=set(), force=True)
+        Doc.set_extension("alpha_words_different_count", default=0, force=True)
 
     def __call__(self, doc: Doc) -> Doc:
         """

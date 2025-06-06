@@ -64,15 +64,15 @@ class ContentWordIdentifier:
             raise AttributeError(message)
 
         self._nlp = nlp
-        Span.set_extension("content_words", default=[])
-        Span.set_extension("content_words_count", default=0)
-        Doc.set_extension("content_words", getter=doc_content_words_getter)
-        Doc.set_extension("content_words_count", default=0)
+        Span.set_extension("content_words", default=[], force=True)
+        Span.set_extension("content_words_count", default=0, force=True)
+        Doc.set_extension("content_words", getter=doc_content_words_getter, force=True)
+        Doc.set_extension("content_words_count", default=0, force=True)
         Doc.set_extension(
-            "content_words_normalized", getter=doc_content_words_normalized_getter
+            "content_words_normalized", getter=doc_content_words_normalized_getter, force=True
         )
-        Doc.set_extension("content_words_different", default=set())
-        Doc.set_extension("content_words_different_count", default=0)
+        Doc.set_extension("content_words_different", default=set(), force=True)
+        Doc.set_extension("content_words_different_count", default=0, force=True)
 
     def __call__(self, doc: Doc) -> Doc:
         """

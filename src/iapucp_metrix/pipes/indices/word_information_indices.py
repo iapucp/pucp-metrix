@@ -32,7 +32,7 @@ class WordInformationIndices:
 
         self._nlp = nlp
         self._incidence = 1000
-        Doc.set_extension("word_information_indices", default={})
+        Doc.set_extension("word_information_indices", default={}, force=True)
 
     def __call__(self, doc: Doc) -> Doc:
         """

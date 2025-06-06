@@ -40,7 +40,7 @@ class LexicalDiversityIndices:
 
         self._nlp = nlp
         self._mltd_segment_size = 100
-        Doc.set_extension("lexical_diversity_indices", default=dict())  # Dictionary
+        Doc.set_extension("lexical_diversity_indices", default=dict(), force=True)  # Dictionary
 
     def __call__(self, doc: Doc) -> Doc:
         """

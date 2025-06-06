@@ -34,8 +34,8 @@ class TemporalConnectivesTagger:
         self._matcher = PhraseMatcher(nlp.vocab, attr='LOWER')
         self._connectives = connectives
 
-        Doc.set_extension('temporal_connectives', default=[])
-        Doc.set_extension('temporal_connectives_count', default=0)
+        Doc.set_extension('temporal_connectives', default=[], force=True)
+        Doc.set_extension('temporal_connectives_count', default=0, force=True)
         # Add the connectives to the matcher
         for con in self._connectives:
             #con_doc = self._nlp.tokenizer(con, disable=self._nlp.pipe_names)

@@ -261,10 +261,10 @@ pip install iapucp-metrix
 After installing the package, you need to install the required Spanish spaCy model:
 
 ```bash
-# Using the provided script
-./install_es_core_news
+# For pip users
+python -m spacy download es_core_news_lg
 
-# Or manually
+# For uv users
 uv pip install es_core_news_lg@https://github.com/explosion/spacy-models/releases/download/es_core_news_lg-3.8.0/es_core_news_lg-3.8.0-py3-none-any.whl
 ```
 

@@ -1,5 +1,7 @@
 # PUCP-Metrix
 
+Paper: [https://arxiv.org/abs/2511.17402](https://arxiv.org/abs/2511.17402)
+
 A comprehensive set of indicators and metrics for assessing text complexity in Spanish, developed by the Artificial Intelligence Group at PUCP (Pontificia Universidad Católica del Perú).
 
 ## Overview
@@ -313,6 +315,22 @@ uv sync
 
 # Run tests
 uv run pytest
+```
+
+## Citation
+
+If you use this work, please cite:
+
+```bibtex
+@misc{luis2025pucpmetrixopensourcecomprehensivetoolkit,
+      title={PUCP-Metrix: An Open-source and Comprehensive Toolkit for Linguistic Analysis of Spanish Texts}, 
+      author={Javier Alonso Villegas Luis and Marco Antonio Sobrevilla Cabezudo},
+      year={2025},
+      eprint={2511.17402},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2511.17402}, 
+}
 ```
 
 ## License
